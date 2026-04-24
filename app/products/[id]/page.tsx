@@ -1,23 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Download, FileText, Info, ShieldAlert, FileWarning } from "lucide-react";
+import { products } from "@/lib/products";
+import { notFound } from "next/navigation";
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
-  
-  // In a real app, you would fetch data using the resolvedParams.id
-  // This is mock data
-  const product = {
-    id: resolvedParams.id,
-    name: "WeedMax 500",
-    category: "Herbicide",
-    activeIngredient: "Pretilachlor 500g/L EC",
-    formulation: "Emulsifiable Concentrate (EC)",
-    crops: ["Paddy"],
-    target: "Annual grasses, broadleaf weeds, and sedges",
-    packSizes: ["100ml", "250ml", "500ml", "1L"],
-    desc: "A highly effective pre-emergent and early post-emergent herbicide for the control of grasses, sedges, and broad-leaved weeds in germinated seeded rice (paddy) cultivation.",
-    safetyClass: "Class II (Moderately Hazardous)",
-  };
+  const product = products.find(p => p.id === resolvedParams.id);
+
+  if (!product) {
+    notFound();
+  }
 
   return (
     <div className="bg-white py-12">
@@ -31,12 +24,14 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Image */}
-          <div className="bg-slate-50 rounded-2xl aspect-square flex items-center justify-center relative overflow-hidden border border-slate-200">
-            <div className="text-center p-8 bg-white border border-slate-200 rounded-xl shadow-sm">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Product</div>
-                <div className="text-2xl font-bold text-slate-800">{product.name}</div>
-                <div className="text-sm text-emerald-600 font-medium mt-1">{product.packSizes[2]} Pack</div>
-            </div>
+          <div className="bg-slate-50 rounded-2xl aspect-square flex items-center justify-center relative overflow-hidden border border-slate-200 group">
+            <Image 
+              src={product.image} 
+              alt={product.name}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+              priority
+            />
           </div>
 
           {/* Details */}
@@ -60,7 +55,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
               <div className="grid grid-cols-3 gap-4 border-t pt-4">
                 <span className="text-gray-500 text-sm">Suitable Crops</span>
-                <span className="col-span-2 text-gray-900 font-medium text-sm">{product.crops.join(', ')}</span>
+                <span className="col-span-2 text-gray-900 font-medium text-sm">{product.crop}</span>
               </div>
               <div className="grid grid-cols-3 gap-4 border-t pt-4">
                 <span className="text-gray-500 text-sm">Target Pest/Weed</span>
