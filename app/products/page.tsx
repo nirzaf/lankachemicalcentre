@@ -1,14 +1,57 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Filter, Search } from "lucide-react";
 
 export default function ProductsPage() {
   const products = [
-    { id: "1", name: "WeedMax 500", category: "Herbicide", crop: "Paddy", desc: "Effective control against broadleaf weeds and sedges in paddy cultivation." },
-    { id: "2", name: "NutriBoost NPK", category: "Fertilizer", crop: "Vegetables", desc: "Complete water-soluble NPK mix for improved vegetable yield and quality." },
-    { id: "3", name: "TeaGuard Pro", category: "Fungicide", crop: "Tea", desc: "Preventative fungicide for managing blister blight in tea plantations." },
-    { id: "4", name: "PestKill 25", category: "Insecticide", crop: "Multiple", desc: "Broad-spectrum insecticide for controlling stem borers and leaf folders." },
-    { id: "5", name: "RootVigor", category: "Plant Growth Regulator", crop: "Root Crops", desc: "Stimulates early root development and enhances nutrient uptake." },
-    { id: "6", name: "CocoShield", category: "Fungicide", crop: "Coconut", desc: "Specialized formulation to combat common fungal infections in coconut palms." },
+    { 
+      id: "1", 
+      name: "WeedMax 500", 
+      category: "Herbicide", 
+      crop: "Paddy", 
+      desc: "Effective control against broadleaf weeds and sedges in paddy cultivation.",
+      image: "/images/products/weedmax_500.png"
+    },
+    { 
+      id: "2", 
+      name: "NutriBoost NPK", 
+      category: "Fertilizer", 
+      crop: "Vegetables", 
+      desc: "Complete water-soluble NPK mix for improved vegetable yield and quality.",
+      image: "/images/products/nutriboost_npk.png"
+    },
+    { 
+      id: "3", 
+      name: "TeaGuard Pro", 
+      category: "Fungicide", 
+      crop: "Tea", 
+      desc: "Preventative fungicide for managing blister blight in tea plantations.",
+      image: "/images/products/teaguard_pro.png"
+    },
+    { 
+      id: "4", 
+      name: "PestKill 25", 
+      category: "Insecticide", 
+      crop: "Multiple", 
+      desc: "Broad-spectrum insecticide for controlling stem borers and leaf folders.",
+      image: "/images/products/pestkill_25.png"
+    },
+    { 
+      id: "5", 
+      name: "RootVigor", 
+      category: "Plant Growth Regulator", 
+      crop: "Root Crops", 
+      desc: "Stimulates early root development and enhances nutrient uptake.",
+      image: "/images/products/rootvigor.png"
+    },
+    { 
+      id: "6", 
+      name: "CocoShield", 
+      category: "Fungicide", 
+      crop: "Coconut", 
+      desc: "Specialized formulation to combat common fungal infections in coconut palms.",
+      image: "/images/products/cocoshield.png"
+    },
   ];
 
   return (
@@ -68,13 +111,15 @@ export default function ProductsPage() {
           <div className="w-full lg:w-3/4">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {products.map(product => (
-                <div key={product.id} className="bg-white border rounded-xl p-5 flex flex-col hover:border-green-300 hover:shadow-md transition-all">
+                <div key={product.id} className="group bg-white border rounded-xl p-5 flex flex-col hover:border-green-300 hover:shadow-md transition-all">
                   <Link href={`/products/${product.id}`} className="block">
-                    <div className="w-full h-48 bg-slate-100 rounded-lg mb-4 flex items-center justify-center text-slate-400 overflow-hidden border border-slate-200 group-hover:bg-indigo-50 transition-colors">
-                      <div className="text-center">
-                        <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-1">Product</div>
-                        <div className="font-bold text-slate-700">{product.name}</div>
-                      </div>
+                    <div className="w-full h-48 bg-slate-100 rounded-lg mb-4 flex items-center justify-center text-slate-400 overflow-hidden border border-slate-200 group-hover:bg-green-50 transition-colors relative">
+                      <Image 
+                        src={product.image} 
+                        alt={product.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
                   </Link>
                   <div className="mb-2 flex justify-between items-start">
@@ -84,7 +129,7 @@ export default function ProductsPage() {
                   <Link href={`/products/${product.id}`}>
                     <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-green-700">{product.name}</h3>
                   </Link>
-                  <p className="text-sm text-gray-600 mb-6 flex-grow">{product.desc}</p>
+                  <p className="text-sm text-gray-600 mb-6 flex-grow line-clamp-2">{product.desc}</p>
                   <div className="mt-auto flex gap-2">
                     <Link href={`/products/${product.id}`} className="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-900 py-2 rounded-lg text-sm font-medium transition-colors">Details</Link>
                     <Link href="/contact" className="flex-1 text-center bg-green-700 hover:bg-green-800 text-white py-2 rounded-lg text-sm font-medium transition-colors">Quote</Link>
@@ -93,7 +138,6 @@ export default function ProductsPage() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </div>

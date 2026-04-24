@@ -132,9 +132,14 @@ export default function Home() {
           </div>
           <div className="space-y-3">
              {/* Product 1 */}
-             <div className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors border border-transparent hover:border-slate-100 cursor-pointer">
-               <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
-                 <div className="text-[10px] font-bold text-slate-400 uppercase">WM</div>
+             <Link href="/products/1" className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors border border-transparent hover:border-slate-100 cursor-pointer">
+               <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden relative">
+                 <Image 
+                   src="/images/products/weedmax_500.png" 
+                   alt="WeedMax 500"
+                   fill
+                   className="object-cover"
+                 />
                </div>
                <div className="flex-grow">
                  <div className="flex justify-between items-center mb-1">
@@ -143,11 +148,16 @@ export default function Home() {
                  </div>
                  <p className="text-xs font-medium text-slate-500 truncate">Control broadleaf weeds and sedges in paddy.</p>
                </div>
-             </div>
+             </Link>
              {/* Product 2 */}
-             <div className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors border border-transparent hover:border-slate-100 cursor-pointer">
-               <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
-                 <div className="text-[10px] font-bold text-slate-400 uppercase">NPK</div>
+             <Link href="/products/2" className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors border border-transparent hover:border-slate-100 cursor-pointer">
+               <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden relative">
+                 <Image 
+                   src="/images/products/nutriboost_npk.png" 
+                   alt="NutriBoost NPK"
+                   fill
+                   className="object-cover"
+                 />
                </div>
                <div className="flex-grow">
                  <div className="flex justify-between items-center mb-1">
@@ -156,7 +166,7 @@ export default function Home() {
                  </div>
                  <p className="text-xs font-medium text-slate-500 truncate">Complete water-soluble NPK mix for vegetables.</p>
                </div>
-             </div>
+             </Link>
           </div>
         </div>
 
