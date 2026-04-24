@@ -57,7 +57,7 @@ export default function KnowledgePage() {
               </div>
               <h2 className="text-xl font-bold text-gray-900 mb-3 leading-snug">{article.title}</h2>
               <p className="text-gray-600 mb-6 flex-grow text-sm">{article.excerpt}</p>
-              <Link href="#" className="inline-flex items-center text-sm font-semibold text-green-700 hover:text-green-800 mt-auto">
+              <Link href={`/knowledge/${article.slug}`} className="inline-flex items-center text-sm font-semibold text-green-700 hover:text-green-800 mt-auto">
                 Read Article <ArrowRight className="h-4 w-4 ml-1" />
               </Link>
             </div>
