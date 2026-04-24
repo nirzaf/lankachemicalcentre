@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sprout, Leaf, Palmtree, Carrot, Apple, Flame } from "lucide-react";
 
 export default function CropsPage() {
   const crops = [
-    { name: "Paddy", icon: "🌾", desc: "Rice cultivation support from land prep to harvest." },
-    { name: "Tea", icon: "🍃", desc: "Specialized solutions for Sri Lanka's premium tea plantations." },
-    { name: "Coconut", icon: "🥥", desc: "Combating common pests and diseases in coconut palms." },
-    { name: "Vegetables", icon: "🥕", desc: "Nutrition and protection for up-country and low-country vegetable crops." },
-    { name: "Fruits", icon: "🍌", desc: "Managing fruit quality and yield across various climatic zones." },
-    { name: "Spices", icon: "🌶️", desc: "Protecting export-quality spice crops like cinnamon and pepper." },
+    { name: "Paddy", icon: <Sprout className="h-12 w-12" />, desc: "Rice cultivation support from land prep to harvest." },
+    { name: "Tea", icon: <Leaf className="h-12 w-12" />, desc: "Specialized solutions for Sri Lanka's premium tea plantations." },
+    { name: "Coconut", icon: <Palmtree className="h-12 w-12" />, desc: "Combating common pests and diseases in coconut palms." },
+    { name: "Vegetables", icon: <Carrot className="h-12 w-12" />, desc: "Nutrition and protection for up-country and low-country vegetable crops." },
+    { name: "Fruits", icon: <Apple className="h-12 w-12" />, desc: "Managing fruit quality and yield across various climatic zones." },
+    { name: "Spices", icon: <Flame className="h-12 w-12" />, desc: "Protecting export-quality spice crops like cinnamon and pepper." },
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function CropsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {crops.map((crop) => (
             <Link key={crop.name} href={`/crops/${crop.name.toLowerCase()}`} className="group bg-white p-8 rounded-2xl border hover:border-green-400 hover:shadow-lg transition-all flex flex-col items-center text-center">
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{crop.icon}</div>
+              <div className="text-green-600 mb-4 group-hover:scale-110 transition-transform">{crop.icon}</div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">{crop.name}</h2>
               <p className="text-gray-600 mb-6">{crop.desc}</p>
               <span className="mt-auto text-green-700 font-medium flex items-center group-hover:underline">

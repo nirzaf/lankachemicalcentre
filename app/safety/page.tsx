@@ -77,14 +77,20 @@ export default function SafetyPage() {
                        <div className="text-sm font-medium text-gray-900">{doc.name}</div>
                        <div className="text-xs text-gray-500 mt-1">Updated {doc.updated}</div>
                      </div>
-                     <button className="text-green-700 p-2 hover:bg-green-50 rounded"><Download className="h-4 w-4" /></button>
-                   </div>
-                 ))}
-               </div>
-               <div className="p-4 bg-gray-50 text-center border-t">
-                 <Link href="/products" className="text-sm font-medium text-green-700 hover:underline">Find SDS via specific products</Link>
-               </div>
-            </div>
+                      <button 
+                        onClick={() => alert(`Starting download for ${doc.name}...`)}
+                        className="text-green-700 p-2 hover:bg-green-50 rounded"
+                        title="Download Document"
+                      >
+                        <Download className="h-4 w-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-4 bg-gray-50 text-center border-t">
+                  <Link href="/products" className="text-sm font-medium text-green-700 hover:underline">Find SDS via specific products</Link>
+                </div>
+             </div>
 
             {/* General Resources */}
             <div className="bg-white border rounded-xl overflow-hidden">
@@ -100,7 +106,13 @@ export default function SafetyPage() {
                        <div className="text-sm font-medium text-gray-900 leading-tight">{doc.name}</div>
                        <div className="text-xs text-gray-500 mt-1">{doc.format}</div>
                      </div>
-                     <button className="text-green-700 p-2 hover:bg-green-50 rounded"><Download className="h-4 w-4" /></button>
+                     <button 
+                        onClick={() => alert(`Starting download for ${doc.name}...`)}
+                        className="text-green-700 p-2 hover:bg-green-50 rounded"
+                        title="Download Document"
+                     >
+                        <Download className="h-4 w-4" />
+                     </button>
                    </div>
                  ))}
                </div>

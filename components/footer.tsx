@@ -11,9 +11,9 @@ export function Footer() {
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-6">
               <div className="relative h-8 w-8 overflow-hidden rounded-lg">
-                <Image 
-                  src="/logo.png" 
-                  alt="Lanka Chemical Centre Logo" 
+                <Image
+                  src="/logo.png"
+                  alt="Lanka Chemical Centre Logo"
                   fill
                   className="object-cover"
                 />
@@ -24,9 +24,9 @@ export function Footer() {
               Providing reliable crop protection, fertilizer, and plant nutrition solutions for farmers, dealers, and commercial growers across Sri Lanka.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white"><Facebook className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><Twitter className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><Instagram className="h-5 w-5" /></a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Facebook className="h-5 w-5" /></a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Twitter className="h-5 w-5" /></a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Instagram className="h-5 w-5" /></a>
             </div>
           </div>
 
