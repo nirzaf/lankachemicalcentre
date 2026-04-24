@@ -77,6 +77,7 @@ export function Header() {
             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Products</Link>
             <Link href="/crops" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Crop Solutions</Link>
             <Link href="/safety" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Safety & Resources</Link>
+            <Link href="/knowledge" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Knowledge Centre</Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-gray-700 font-medium">Contact Us</Link>
             <Link 
               href="/contact" 
