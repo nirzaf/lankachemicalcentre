@@ -1,0 +1,164 @@
+"use client";
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  phone: z.string().min(10, "Valid phone number required"),
+  email: z.string().email("Valid email required").optional().or(z.literal("")),
+  userType: z.string().min(1, "Please select user type"),
+  district: z.string().min(1, "Please select district"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+export default function ContactPage() {
+  const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema)
+  });
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    // In a real app, this would submit via API
+    alert("Enquiry submitted successfully! A representative will contact you soon.");
+  };
+
+  return (
+    <div className="bg-gray-50 py-12 min-h-screen">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
+          <p className="text-lg text-gray-600">
+            For product enquiries, quotations, or technical support, please reach out to our team.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
+          {/* Contact Details */}
+          <div className="lg:col-span-1 space-y-8">
+            <div className="bg-white p-6 rounded-xl border">
+              <div className="w-12 h-12 bg-green-100 text-green-700 rounded-full flex items-center justify-center mb-4">
+                <Phone className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-1">Call Us</h3>
+              <p className="text-gray-600 text-sm mb-2">Mon-Fri from 8:30am to 5:00pm</p>
+              <a href="tel:+94112345678" className="text-green-700 font-semibold hover:underline">+94 11 234 5678</a>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border">
+              <div className="w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mb-4">
+                <Mail className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-1">Email</h3>
+              <p className="text-gray-600 text-sm mb-2">We aim to reply within 24 hours</p>
+              <a href="mailto:info@lankachemicalcentre.com" className="text-blue-700 font-semibold hover:underline">info@lankachemicalcentre.com</a>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border">
+              <div className="w-12 h-12 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mb-4">
+                <MapPin className="h-5 w-5" />
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-1">Head Office</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Lanka Chemical Centre (Pvt) Ltd.<br/>
+                123 Agriculture Avenue,<br/>
+                Colombo 03,<br/>
+                Sri Lanka.
+              </p>
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="lg:col-span-2">
+            <div className="bg-white p-8 rounded-2xl border shadow-sm">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send an Enquiry</h3>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                    <input 
+                      {...register("name")}
+                      type="text" 
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.name ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
+                    />
+                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                    <input 
+                      {...register("phone")}
+                      type="tel" 
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.phone ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
+                    />
+                    {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input 
+                      {...register("email")}
+                      type="email" 
+                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.email ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">I am a... *</label>
+                    <select 
+                      {...register("userType")}
+                      className={`w-full px-4 py-2 border rounded-lg bg-white focus:ring-2 focus:outline-none ${errors.userType ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
+                    >
+                      <option value="">Select an option</option>
+                      <option value="farmer">Farmer / Grower</option>
+                      <option value="plantation">Plantation Buyer</option>
+                      <option value="other">Other</option>
+                    </select>
+                    {errors.userType && <p className="text-red-500 text-xs mt-1">{errors.userType.message}</p>}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">District *</label>
+                  <select 
+                    {...register("district")}
+                    className={`w-full px-4 py-2 border rounded-lg bg-white focus:ring-2 focus:outline-none ${errors.district ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
+                  >
+                    <option value="">Select your district</option>
+                    <option value="Ampara">Ampara</option>
+                    <option value="Anuradhapura">Anuradhapura</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Kurunegala">Kurunegala</option>
+                    {/* Simplified list for prototype */}
+                  </select>
+                  {errors.district && <p className="text-red-500 text-xs mt-1">{errors.district.message}</p>}
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Message / Product Required *</label>
+                  <textarea 
+                    {...register("message")}
+                    rows={4}
+                    placeholder="Provide details about your requirement..."
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.message ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
+                  ></textarea>
+                  {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                </div>
+
+                <div>
+                  <button type="submit" className="w-full sm:w-auto px-8 py-3 bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg flex justify-center items-center transition-colors">
+                    <Send className="h-4 w-4 mr-2" /> Send Enquiry
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
