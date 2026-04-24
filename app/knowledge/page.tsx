@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, Tag } from "lucide-react";
 export default function KnowledgePage() {
   const articles = [
     {
+      slug: "maha-season-checklist",
       title: "Maha Season Crop Protection Checklist",
       excerpt: "Prepare for the upcoming Maha season with our comprehensive guide to early weed management and preventative disease control in paddy.",
       date: "Oct 12, 2026",
@@ -11,6 +12,7 @@ export default function KnowledgePage() {
       readTime: "5 min read"
     },
     {
+      slug: "chemical-storage-safety",
       title: "How to Store Agricultural Chemicals Safely",
       excerpt: "Improper storage reduces product efficacy and poses significant safety risks. Learn the best practices for setting up a safe chemical storage area on your farm.",
       date: "Sep 28, 2026",
@@ -18,6 +20,7 @@ export default function KnowledgePage() {
       readTime: "4 min read"
     },
     {
+      slug: "paddy-weed-problems",
       title: "Common Paddy Weed Problems in Sri Lanka",
       excerpt: "Identify and manage the most stubborn sedges and broadleaf weeds affecting paddy yields in the dry zone.",
       date: "Sep 15, 2026",
@@ -25,6 +28,7 @@ export default function KnowledgePage() {
       readTime: "7 min read"
     },
     {
+      slug: "fungicide-modes-of-action",
       title: "Understanding Fungicide Modes of Action",
       excerpt: "Why rotating fungicides is essential to prevent resistance in high-value vegetable crops.",
       date: "Aug 30, 2026",
