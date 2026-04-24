@@ -10,6 +10,8 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
     executiveSummary: string;
     takeaways: string[];
     conclusion: string;
+    date: string;
+    readTime: string;
     expertQuote?: string;
   }> = {
     "maha-season-checklist": {
