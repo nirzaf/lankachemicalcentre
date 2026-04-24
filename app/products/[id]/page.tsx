@@ -88,26 +88,26 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Product Resources</h2>
             <div className="bg-white border rounded-xl overflow-hidden">
               <div className="divide-y">
-                 <div className="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                   <div className="flex items-center">
-                     <FileText className="h-5 w-5 text-red-500 mr-3" />
-                     <div>
-                       <div className="font-semibold text-gray-900 text-sm">Approved Product Label</div>
-                       <div className="text-xs text-gray-500">English, Sinhala, Tamil (PDF, 2.4MB)</div>
-                     </div>
-                   </div>
-                   <button className="text-green-700 hover:bg-green-50 p-2 rounded-full"><Download className="h-5 w-5" /></button>
-                 </div>
-                 <div className="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                   <div className="flex items-center">
-                     <FileWarning className="h-5 w-5 text-yellow-500 mr-3" />
-                     <div>
-                       <div className="font-semibold text-gray-900 text-sm">Safety Data Sheet (SDS)</div>
-                       <div className="text-xs text-gray-500">English (PDF, 1.1MB)</div>
-                     </div>
-                   </div>
-                   <button className="text-green-700 hover:bg-green-50 p-2 rounded-full"><Download className="h-5 w-5" /></button>
-                 </div>
+                  <div className="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div className="flex items-center">
+                      <FileText className="h-5 w-5 text-red-500 mr-3" />
+                      <div>
+                        <div className="font-semibold text-gray-900 text-sm">Approved Product Label</div>
+                        <div className="text-xs text-gray-500">English, Sinhala, Tamil (PDF, 2.4MB)</div>
+                      </div>
+                    </div>
+                    <a href="/docs/labels/product_label.pdf" download className="text-green-700 hover:bg-green-50 p-2 rounded-full"><Download className="h-5 w-5" /></a>
+                  </div>
+                  <div className="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div className="flex items-center">
+                      <FileWarning className="h-5 w-5 text-yellow-500 mr-3" />
+                      <div>
+                        <div className="font-semibold text-gray-900 text-sm">Safety Data Sheet (SDS)</div>
+                        <div className="text-xs text-gray-500">English (PDF, 1.1MB)</div>
+                      </div>
+                    </div>
+                    <a href="/docs/sds/safety_data_sheet.pdf" download className="text-green-700 hover:bg-green-50 p-2 rounded-full"><Download className="h-5 w-5" /></a>
+                  </div>
               </div>
             </div>
           </div>

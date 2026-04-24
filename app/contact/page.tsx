@@ -25,12 +25,27 @@ export default function ContactPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    // In a real app, this would submit via API
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log("Form values:", values);
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    reset();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        reset();
+      } else {
+        alert("Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
