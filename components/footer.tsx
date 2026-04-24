@@ -9,18 +9,6 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="relative h-8 w-8 overflow-hidden rounded-lg">
-                <Image
-                  src="/logo.png"
-                  alt="Lanka Chemical Centre Logo"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <span className="font-bold text-xl text-white">Lanka Chemical Centre</span>
-            </Link>
-            <p className="text-sm text-gray-400 mb-6">
             <div className="flex items-center gap-2 mb-6">
               <Image src="/logo.png" alt="Lanka Chemical Centre" width={40} height={40} className="rounded" />
               <span className="text-xl font-bold tracking-tight text-white">Lanka Chemical Centre</span>

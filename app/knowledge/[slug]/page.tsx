@@ -25,6 +25,8 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
         "Use pre-emergent herbicides within 3-5 days of sowing paddy."
       ],
       conclusion: "By following this checklist, farmers can mitigate the risks associated with the Maha season's high moisture levels and maximize their production potential.",
+      date: "Oct 12, 2025",
+      readTime: "5 min read",
       expertQuote: "Early intervention in the Maha season can save up to 30% of your yield that might otherwise be lost to pests and diseases fostered by the high humidity."
     },
     "chemical-storage-safety": {
@@ -38,6 +40,8 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
         "Ensure a spill kit (sand or sawdust) is readily available nearby."
       ],
       conclusion: "Safe storage is not just a best practice; it's a responsibility. By maintaining a clean and secure storage area, you protect your family, your workers, and your investments.",
+      date: "Sep 28, 2025",
+      readTime: "4 min read",
       expertQuote: "Most farm accidents involving chemicals happen due to poor storage practices. A simple lock can save lives."
     },
     "paddy-weed-problems": {
@@ -51,6 +55,8 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
         "Apply post-emergent herbicides at the 2-4 leaf stage of the weeds for maximum efficacy."
       ],
       conclusion: "Effective weed control requires a proactive approach. Understanding the lifecycle of the weeds in your area allows for more precise and cost-effective management.",
+      date: "Sep 15, 2025",
+      readTime: "7 min read",
       expertQuote: "Water is your best herbicide. Proper leveling and water management can reduce your chemical dependency by half."
     },
     "fungicide-modes-of-action": {
@@ -64,6 +70,8 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
         "Apply fungicides preventatively when weather conditions favor disease development."
       ],
       conclusion: "A smart fungicide strategy focuses on long-term sustainability. By understanding the science behind the products, you can protect your crops while preserving the effectiveness of these vital tools.",
+      date: "Aug 30, 2025",
+      readTime: "6 min read",
       expertQuote: "Resistance management is not an option; it's a necessity. Once a fungus becomes resistant to a class of chemistry, that tool is lost to the community."
     }
   };
@@ -79,6 +87,8 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
       "Prioritize personal protective equipment (PPE) for all handling and application tasks."
     ],
     conclusion: "Lanka Chemical Centre is dedicated to supporting the farming community with not just products, but also the knowledge required to use them effectively and safely. For more specific advice tailored to your farm, please contact our technical advisors.",
+    date: "Jan 1, 2025",
+    readTime: "5 min read",
     expertQuote: "Consistency in monitoring is more effective than heavy reactive treatment. By identifying problems early, farmers can often use less intense interventions to achieve better results."
   };
 
@@ -94,8 +104,8 @@ export default async function KnowledgeArticlePage({ params }: { params: Promise
         {/* Article Header */}
         <header className="mb-12">
           <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-            <span className="flex items-center"><Calendar className="h-4 w-4 mr-1" /> Oct 2026</span>
-            <span className="flex items-center"><Clock className="h-4 w-4 mr-1" /> 5 min read</span>
+            <span className="flex items-center"><Calendar className="h-4 w-4 mr-1" /> {article.date}</span>
+            <span className="flex items-center"><Clock className="h-4 w-4 mr-1" /> {article.readTime}</span>
             <span className="flex items-center"><User className="h-4 w-4 mr-1" /> Technical Team</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
