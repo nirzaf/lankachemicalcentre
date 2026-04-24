@@ -135,42 +135,31 @@ export default function Home() {
              <Link href="/products" className="text-indigo-600 text-xs font-bold hover:underline">View All</Link>
           </div>
           <div className="space-y-3">
-             {/* Product 1 */}
-             <Link href="/products/1" className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors border border-transparent hover:border-slate-100 cursor-pointer">
-               <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden relative">
-                 <Image 
-                   src="/images/products/weedmax_500.png" 
-                   alt="WeedMax 500"
-                   fill
-                   className="object-cover"
-                 />
-               </div>
-               <div className="flex-grow">
-                 <div className="flex justify-between items-center mb-1">
-                   <p className="text-sm font-bold text-slate-900">WeedMax 500</p>
-                   <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">Herbicide</span>
+             {featuredProducts.map((product) => (
+               <Link key={product.id} href={`/products/${product.id}`} className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors border border-transparent hover:border-slate-100 cursor-pointer">
+                 <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden relative">
+                   <Image 
+                     src={product.image} 
+                     alt={product.name}
+                     fill
+                     className="object-cover"
+                   />
                  </div>
-                 <p className="text-xs font-medium text-slate-500 truncate">Control broadleaf weeds and sedges in paddy.</p>
-               </div>
-             </Link>
-             {/* Product 2 */}
-             <Link href="/products/2" className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors border border-transparent hover:border-slate-100 cursor-pointer">
-               <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden relative">
-                 <Image 
-                   src="/images/products/nutriboost_npk.png" 
-                   alt="NutriBoost NPK"
-                   fill
-                   className="object-cover"
-                 />
-               </div>
-               <div className="flex-grow">
-                 <div className="flex justify-between items-center mb-1">
-                   <p className="text-sm font-bold text-slate-900">NutriBoost NPK</p>
-                   <span className="bg-indigo-50 text-indigo-700 border border-indigo-200 text-[10px] px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">Fertilizer</span>
+                 <div className="flex-grow">
+                   <div className="flex justify-between items-center mb-1">
+                     <p className="text-sm font-bold text-slate-900">{product.name}</p>
+                     <span className={`text-[10px] px-2 py-0.5 rounded-md font-bold uppercase tracking-wider border ${
+                       product.category === 'Herbicide' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 
+                       product.category === 'Fertilizer' ? 'bg-indigo-50 text-indigo-700 border-indigo-200' :
+                       'bg-slate-50 text-slate-700 border-slate-200'
+                     }`}>
+                       {product.category}
+                     </span>
+                   </div>
+                   <p className="text-xs font-medium text-slate-500 truncate">{product.desc}</p>
                  </div>
-                 <p className="text-xs font-medium text-slate-500 truncate">Complete water-soluble NPK mix for vegetables.</p>
-               </div>
-             </Link>
+               </Link>
+             ))}
           </div>
         </div>
 
