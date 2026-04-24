@@ -1,8 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, ShieldCheck, Sprout, Building2, BookOpen } from "lucide-react";
+import { products } from "@/lib/products";
 
 export default function Home() {
+  // Get first 2 products for featured section
+  const featuredProducts = products.slice(0, 2);
+
   return (
     <div className="w-full bg-slate-50 text-slate-900 font-sans p-4 md:p-6 flex flex-col gap-4">
       {/* Bento Grid Container */}
