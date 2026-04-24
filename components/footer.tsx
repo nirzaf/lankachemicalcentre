@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -9,8 +10,13 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="h-8 w-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-                LC
+              <div className="relative h-8 w-8 overflow-hidden rounded-lg">
+                <Image 
+                  src="/logo.png" 
+                  alt="Lanka Chemical Centre Logo" 
+                  fill
+                  className="object-cover"
+                />
               </div>
               <span className="font-bold text-xl text-white">Lanka Chemical Centre</span>
             </Link>

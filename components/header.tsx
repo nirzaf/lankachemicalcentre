@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Search, Globe, Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,8 +28,13 @@ export function Header() {
       <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <div className="h-10 w-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-            LC
+          <div className="relative h-10 w-10 overflow-hidden rounded-lg">
+            <Image 
+              src="/logo.png" 
+              alt="Lanka Chemical Centre Logo" 
+              fill
+              className="object-cover"
+            />
           </div>
           <div>
             <div className="font-bold text-xl leading-tight text-green-900">Lanka Chemical</div>
