@@ -21,25 +21,35 @@ export function Footer() {
               <span className="font-bold text-xl text-white">Lanka Chemical Centre</span>
             </Link>
             <p className="text-sm text-gray-400 mb-6">
-              Providing reliable crop protection, fertilizer, and plant nutrition solutions for farmers, dealers, and commercial growers across Sri Lanka.
+            <div className="flex items-center gap-2 mb-6">
+              <Image src="/logo.png" alt="Lanka Chemical Centre" width={40} height={40} className="rounded" />
+              <span className="text-xl font-bold tracking-tight text-white">Lanka Chemical Centre</span>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              Professional agricultural solutions and chemical distribution in Sri Lanka. Committed to farmer success and sustainable agriculture.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Facebook className="h-5 w-5" /></a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Twitter className="h-5 w-5" /></a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white"><Instagram className="h-5 w-5" /></a>
+            <div className="flex gap-4">
+              <a href="https://facebook.com/lankachemicalcentre" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors text-white">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="https://twitter.com/lankachemical" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors text-white">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="https://instagram.com/lankachemicalcentre" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors text-white">
+                <Instagram className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="hover:text-green-400">About Us</Link></li>
-              <li><Link href="/products" className="hover:text-green-400">Products</Link></li>
-              <li><Link href="/crops" className="hover:text-green-400">Crop Solutions</Link></li>
-              <li><Link href="/safety" className="hover:text-green-400">Safety & Resources</Link></li>
-              <li><Link href="/knowledge" className="hover:text-green-400">Knowledge Centre</Link></li>
-              <li><Link href="/contact" className="hover:text-green-400">Contact Us</Link></li>
+            <h4 className="text-white font-bold mb-6">Quick Links</h4>
+            <ul className="space-y-4 text-gray-400 text-sm">
+              <li><Link href="/products" className="hover:text-white transition-colors">Products</Link></li>
+              <li><Link href="/knowledge" className="hover:text-white transition-colors">Knowledge Centre</Link></li>
+              <li><Link href="/crops" className="hover:text-white transition-colors">Crop Solutions</Link></li>
+              <li><Link href="/safety" className="hover:text-white transition-colors">Safety & SDS</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
             </ul>
           </div>
 
@@ -54,21 +64,21 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-4 text-sm text-gray-400">
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-2 text-green-500 shrink-0" />
-                <span>123 Agriculture Avenue, Colombo 03, Sri Lanka</span>
+            <h4 className="text-white font-bold mb-6">Contact</h4>
+            <ul className="space-y-4 text-gray-400 text-sm">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-green-600 shrink-0" />
+                <span>Anuradhapura Road, Horawapothana, Sri Lanka</span>
               </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-2 text-green-500 shrink-0" />
-                <span>+94 11 234 5678</span>
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-green-600 shrink-0" />
+                <a href="tel:+94112345678" className="hover:text-white">+94 11 234 5678</a>
               </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-2 text-green-500 shrink-0" />
-                <span>contact@lankachemicalcentre.com</span>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-green-600 shrink-0" />
+                <a href="mailto:contact@lankachemicalcentre.com" className="hover:text-white">contact@lankachemicalcentre.com</a>
               </li>
             </ul>
           </div>

@@ -4,9 +4,6 @@ import { ArrowLeft, Clock, Calendar, User, Share2 } from "lucide-react";
 export default async function KnowledgeArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
-export default async function KnowledgeArticlePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  
   const articles: Record<string, {
     title: string;
     lead: string;

@@ -10,15 +10,29 @@ import { useSearchParams } from "next/navigation";
 function ProductsContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category");
-
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(
-    initialCategory ? [initialCategory.charAt(0).toUpperCase() + initialCategory.slice(1).toLowerCase()] : []
-  );
-  const [selectedCrops, setSelectedCrops] = useState<string[]>([]);
+  const initialCrop = searchParams.get("crop");
 
   const categories = ["Herbicide", "Insecticide", "Fungicide", "Fertilizer", "Plant Growth Regulator"];
   const crops = ["Paddy", "Tea", "Vegetables", "Coconut", "Multiple", "Root Crops"];
+
+  // Normalize initial values
+  const normalizeCategory = (cat: string) => {
+    let normalized = cat.toLowerCase();
+    if (normalized.endsWith('s')) normalized = normalized.slice(0, -1);
+    return categories.find(c => c.toLowerCase() === normalized) || "";
+  };
+
+  const normalizeCrop = (crop: string) => {
+    return crops.find(c => c.toLowerCase() === crop.toLowerCase()) || "";
+  };
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    initialCategory && normalizeCategory(initialCategory) ? [normalizeCategory(initialCategory)] : []
+  );
+  const [selectedCrops, setSelectedCrops] = useState<string[]>(
+    initialCrop && normalizeCrop(initialCrop) ? [normalizeCrop(initialCrop)] : []
+  );
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
