@@ -1,58 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Filter, Search } from "lucide-react";
+import { products } from "@/lib/products";
 
 export default function ProductsPage() {
-  const products = [
-    { 
-      id: "1", 
-      name: "WeedMax 500", 
-      category: "Herbicide", 
-      crop: "Paddy", 
-      desc: "Effective control against broadleaf weeds and sedges in paddy cultivation.",
-      image: "/images/products/weedmax_500.png"
-    },
-    { 
-      id: "2", 
-      name: "NutriBoost NPK", 
-      category: "Fertilizer", 
-      crop: "Vegetables", 
-      desc: "Complete water-soluble NPK mix for improved vegetable yield and quality.",
-      image: "/images/products/nutriboost_npk.png"
-    },
-    { 
-      id: "3", 
-      name: "TeaGuard Pro", 
-      category: "Fungicide", 
-      crop: "Tea", 
-      desc: "Preventative fungicide for managing blister blight in tea plantations.",
-      image: "/images/products/teaguard_pro.png"
-    },
-    { 
-      id: "4", 
-      name: "PestKill 25", 
-      category: "Insecticide", 
-      crop: "Multiple", 
-      desc: "Broad-spectrum insecticide for controlling stem borers and leaf folders.",
-      image: "/images/products/pestkill_25.png"
-    },
-    { 
-      id: "5", 
-      name: "RootVigor", 
-      category: "Plant Growth Regulator", 
-      crop: "Root Crops", 
-      desc: "Stimulates early root development and enhances nutrient uptake.",
-      image: "/images/products/rootvigor.png"
-    },
-    { 
-      id: "6", 
-      name: "CocoShield", 
-      category: "Fungicide", 
-      crop: "Coconut", 
-      desc: "Specialized formulation to combat common fungal infections in coconut palms.",
-      image: "/images/products/cocoshield.png"
-    },
-  ];
 
   return (
     <div className="bg-gray-50 py-12 min-h-[calc(100vh-200px)]">
