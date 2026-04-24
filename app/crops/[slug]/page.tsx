@@ -1,8 +1,16 @@
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { products } from "@/lib/products";
 
 export default async function CropDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  
+  // Normalize slug to match product data (e.g., "paddy" -> "Paddy")
+  const normalizedSlug = slug.charAt(0).toUpperCase() + slug.slice(1);
+  
+  const recommendedProducts = products.filter(p => 
+    p.crop === normalizedSlug || p.crop === "Multiple"
+  );
   
   return (
     <div className="bg-white py-12 min-h-screen">
@@ -30,14 +38,20 @@ export default async function CropDetailPage({ params }: { params: Promise<{ slu
           
           <div className="bg-green-50 p-8 rounded-2xl border border-green-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Recommended Products</h2>
-            <ul className="space-y-4">
-               {['WeedMax 500 (Herbicide)', 'NutriBoost NPK (Fertilizer)', 'PestKill 25 (Insecticide)'].map((p, i) => (
-                <li key={i} className="flex items-center bg-white p-3 rounded shadow-sm">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="font-medium text-gray-900">{p}</span>
-                </li>
-              ))}
-            </ul>
+            {recommendedProducts.length > 0 ? (
+              <ul className="space-y-4">
+                 {recommendedProducts.map((p) => (
+                  <li key={p.id} className="bg-white p-3 rounded shadow-sm">
+                    <Link href={`/products/${p.id}`} className="flex items-center hover:text-green-700 transition-colors">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 mr-3" />
+                      <span className="font-medium text-gray-900">{p.name} ({p.category})</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-gray-500 italic">No specific products listed for this crop yet. Contact us for recommendations.</p>
+            )}
             <div className="mt-8">
               <Link href={`/products?crop=${slug}`} className="inline-block bg-green-700 text-white font-medium px-6 py-2 rounded-lg hover:bg-green-800 transition-colors">
                 View All Compatible Products
