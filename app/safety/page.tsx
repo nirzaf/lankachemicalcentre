@@ -68,22 +68,23 @@ export default function SafetyPage() {
                <div className="bg-gray-100 px-6 py-4 border-b font-semibold text-gray-900">Safety Data Sheets (SDS)</div>
                <div className="divide-y">
                  {[
-                   { name: "WeedMax 500 SDS", updated: "Jan 2026" },
-                   { name: "PestKill 25 SDS", updated: "Nov 2025" },
-                   { name: "TeaGuard Pro SDS", updated: "Dec 2025" }
+                   { name: "WeedMax 500 SDS", updated: "Jan 2025" },
+                   { name: "PestKill 25 SDS", updated: "Nov 2024" },
+                   { name: "TeaGuard Pro SDS", updated: "Dec 2024" }
                  ].map((doc) => (
                    <div key={doc.name} className="px-6 py-4 flex justify-between items-center hover:bg-gray-50">
                      <div>
                        <div className="text-sm font-medium text-gray-900">{doc.name}</div>
                        <div className="text-xs text-gray-500 mt-1">Updated {doc.updated}</div>
                      </div>
-                      <button 
-                        onClick={() => alert(`Starting download for ${doc.name}...`)}
+                      <a 
+                        href="/docs/sds/safety_data_sheet.pdf"
+                        download
                         className="text-green-700 p-2 hover:bg-green-50 rounded"
                         title="Download Document"
                       >
                         <Download className="h-4 w-4" />
-                      </button>
+                      </a>
                     </div>
                   ))}
                 </div>
@@ -106,13 +107,14 @@ export default function SafetyPage() {
                        <div className="text-sm font-medium text-gray-900 leading-tight">{doc.name}</div>
                        <div className="text-xs text-gray-500 mt-1">{doc.format}</div>
                      </div>
-                     <button 
-                        onClick={() => alert(`Starting download for ${doc.name}...`)}
+                     <a 
+                        href="/docs/labels/product_label.pdf"
+                        download
                         className="text-green-700 p-2 hover:bg-green-50 rounded"
                         title="Download Document"
                      >
                         <Download className="h-4 w-4" />
-                     </button>
+                     </a>
                    </div>
                  ))}
                </div>
