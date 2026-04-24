@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Contact Us</h2>
           <p className="text-gray-600 mb-4">
-            If you have any questions about this Privacy Policy, please contact us at info@lankachemicalcentre.com.
+            If you have any questions about this Privacy Policy, please contact us at contact@lankachemicalcentre.com.
           </p>
         </div>
       </div>

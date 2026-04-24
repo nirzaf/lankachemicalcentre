@@ -52,7 +52,7 @@ export default function ContactPage() {
               </div>
               <h3 className="font-bold text-gray-900 text-lg mb-1">Email</h3>
               <p className="text-gray-600 text-sm mb-2">We aim to reply within 24 hours</p>
-              <a href="mailto:info@lankachemicalcentre.com" className="text-blue-700 font-semibold hover:underline">info@lankachemicalcentre.com</a>
+              <a href="mailto:contact@lankachemicalcentre.com" className="text-blue-700 font-semibold hover:underline">contact@lankachemicalcentre.com</a>
             </div>
 
             <div className="bg-white p-6 rounded-xl border">

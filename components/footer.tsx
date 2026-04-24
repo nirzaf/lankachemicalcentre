@@ -62,7 +62,7 @@ export function Footer() {
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-green-500 shrink-0" />
-                <span>info@lankachemicalcentre.com</span>
+                <span>contact@lankachemicalcentre.com</span>
               </li>
             </ul>
           </div>
