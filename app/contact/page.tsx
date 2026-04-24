@@ -3,7 +3,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -15,13 +16,21 @@ const formSchema = z.object({
 });
 
 export default function ContactPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof formSchema>>({
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
     // In a real app, this would submit via API
-    alert("Enquiry submitted successfully! A representative will contact you soon.");
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    console.log("Form values:", values);
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    reset();
   };
 
   return (
@@ -59,11 +68,11 @@ export default function ContactPage() {
               <div className="w-12 h-12 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mb-4">
                 <MapPin className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-gray-900 text-lg mb-1">Head Office</h3>
+              <h3 className="font-bold text-gray-900 text-lg mb-1">Business Address</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Lanka Chemical Centre (Pvt) Ltd.<br/>
-                123 Agriculture Avenue,<br/>
-                Colombo 03,<br/>
+                Lanka Chemical Centre<br/>
+                Anuradhapura Road,<br/>
+                Horawapothana,<br/>
                 Sri Lanka.
               </p>
             </div>
