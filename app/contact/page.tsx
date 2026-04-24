@@ -80,89 +80,131 @@ export default function ContactPage() {
 
           {/* Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white p-8 rounded-2xl border shadow-sm">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send an Enquiry</h3>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                    <input 
-                      {...register("name")}
-                      type="text" 
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.name ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
-                    />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+            <div className="bg-white p-8 rounded-2xl border shadow-sm h-full">
+              {isSuccess ? (
+                <div className="flex flex-col items-center justify-center h-full py-12 text-center">
+                  <div className="w-16 h-16 bg-green-100 text-green-700 rounded-full flex items-center justify-center mb-6">
+                    <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                    <input 
-                      {...register("phone")}
-                      type="tel" 
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.phone ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
-                    />
-                    {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                    <input 
-                      {...register("email")}
-                      type="email" 
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.email ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">I am a... *</label>
-                    <select 
-                      {...register("userType")}
-                      className={`w-full px-4 py-2 border rounded-lg bg-white focus:ring-2 focus:outline-none ${errors.userType ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
-                    >
-                      <option value="">Select an option</option>
-                      <option value="farmer">Farmer / Grower</option>
-                      <option value="plantation">Plantation Buyer</option>
-                      <option value="other">Other</option>
-                    </select>
-                    {errors.userType && <p className="text-red-500 text-xs mt-1">{errors.userType.message}</p>}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">District *</label>
-                  <select 
-                    {...register("district")}
-                    className={`w-full px-4 py-2 border rounded-lg bg-white focus:ring-2 focus:outline-none ${errors.district ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Enquiry Sent Successfully!</h3>
+                  <p className="text-gray-600 mb-8 max-w-sm">
+                    Thank you for reaching out. Our representative will review your message and contact you shortly.
+                  </p>
+                  <button 
+                    onClick={() => setIsSuccess(false)}
+                    className="text-green-700 font-bold hover:underline"
                   >
-                    <option value="">Select your district</option>
-                    <option value="Ampara">Ampara</option>
-                    <option value="Anuradhapura">Anuradhapura</option>
-                    <option value="Colombo">Colombo</option>
-                    <option value="Gampaha">Gampaha</option>
-                    <option value="Kandy">Kandy</option>
-                    <option value="Kurunegala">Kurunegala</option>
-                    {/* Simplified list for prototype */}
-                  </select>
-                  {errors.district && <p className="text-red-500 text-xs mt-1">{errors.district.message}</p>}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Message / Product Required *</label>
-                  <textarea 
-                    {...register("message")}
-                    rows={4}
-                    placeholder="Provide details about your requirement..."
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.message ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'}`}
-                  ></textarea>
-                  {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
-                </div>
-
-                <div>
-                  <button type="submit" className="w-full sm:w-auto px-8 py-3 bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg flex justify-center items-center transition-colors">
-                    <Send className="h-4 w-4 mr-2" /> Send Enquiry
+                    Send another message
                   </button>
                 </div>
-              </form>
+              ) : (
+                <>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Send an Enquiry</h3>
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                        <input 
+                          {...register("name")}
+                          type="text" 
+                          disabled={isSubmitting}
+                          className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.name ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'} disabled:bg-gray-50`}
+                        />
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                        <input 
+                          {...register("phone")}
+                          type="tel" 
+                          disabled={isSubmitting}
+                          className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.phone ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'} disabled:bg-gray-50`}
+                        />
+                        {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input 
+                          {...register("email")}
+                          type="email" 
+                          disabled={isSubmitting}
+                          className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.email ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'} disabled:bg-gray-50`}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">I am a... *</label>
+                        <select 
+                          {...register("userType")}
+                          disabled={isSubmitting}
+                          className={`w-full px-4 py-2 border rounded-lg bg-white focus:ring-2 focus:outline-none ${errors.userType ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'} disabled:bg-gray-50`}
+                        >
+                          <option value="">Select an option</option>
+                          <option value="farmer">Farmer / Grower</option>
+                          <option value="plantation">Plantation Buyer</option>
+                          <option value="other">Other</option>
+                        </select>
+                        {errors.userType && <p className="text-red-500 text-xs mt-1">{errors.userType.message}</p>}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">District *</label>
+                      <select 
+                        {...register("district")}
+                        disabled={isSubmitting}
+                        className={`w-full px-4 py-2 border rounded-lg bg-white focus:ring-2 focus:outline-none ${errors.district ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'} disabled:bg-gray-50`}
+                      >
+                        <option value="">Select your district</option>
+                        <option value="Ampara">Ampara</option>
+                        <option value="Anuradhapura">Anuradhapura</option>
+                        <option value="Colombo">Colombo</option>
+                        <option value="Gampaha">Gampaha</option>
+                        <option value="Kandy">Kandy</option>
+                        <option value="Kurunegala">Kurunegala</option>
+                        <option value="Matale">Matale</option>
+                        <option value="Nuwara Eliya">Nuwara Eliya</option>
+                        <option value="Polonnaruwa">Polonnaruwa</option>
+                        <option value="Ratnapura">Ratnapura</option>
+                      </select>
+                      {errors.district && <p className="text-red-500 text-xs mt-1">{errors.district.message}</p>}
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Message / Product Required *</label>
+                      <textarea 
+                        {...register("message")}
+                        rows={4}
+                        disabled={isSubmitting}
+                        placeholder="Provide details about your requirement..."
+                        className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:outline-none ${errors.message ? 'border-red-500 focus:ring-red-200' : 'focus:ring-green-200 focus:border-green-500'} disabled:bg-gray-50`}
+                      ></textarea>
+                      {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+                    </div>
+
+                    <div>
+                      <button 
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className="w-full sm:w-auto px-8 py-3 bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg flex justify-center items-center transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></div>
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="h-4 w-4 mr-2" /> Send Enquiry
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </form>
+                </>
+              )}
             </div>
           </div>
         </div>
