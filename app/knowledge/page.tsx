@@ -7,7 +7,7 @@ export default function KnowledgePage() {
       slug: "maha-season-checklist",
       title: "Maha Season Crop Protection Checklist",
       excerpt: "Prepare for the upcoming Maha season with our comprehensive guide to early weed management and preventative disease control in paddy.",
-      date: "Oct 12, 2026",
+      date: "Oct 12, 2025",
       category: "Seasonal Updates",
       readTime: "5 min read"
     },
@@ -15,7 +15,7 @@ export default function KnowledgePage() {
       slug: "chemical-storage-safety",
       title: "How to Store Agricultural Chemicals Safely",
       excerpt: "Improper storage reduces product efficacy and poses significant safety risks. Learn the best practices for setting up a safe chemical storage area on your farm.",
-      date: "Sep 28, 2026",
+      date: "Sep 28, 2025",
       category: "Safety Guidance",
       readTime: "4 min read"
     },
