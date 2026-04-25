@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 
 export function Footer() {
@@ -16,16 +16,6 @@ export function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Professional agricultural solutions and chemical distribution in Sri Lanka. Committed to farmer success and sustainable agriculture.
             </p>
-            <div className="flex gap-4">
-              <a href="https://facebook.com/lankachemicalcentre" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors text-white">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="https://twitter.com/lankachemical" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors text-white">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="https://instagram.com/lankachemicalcentre" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors text-white">
-                <Instagram className="h-5 w-5" />
-              </a>
             </div>
           </div>
 

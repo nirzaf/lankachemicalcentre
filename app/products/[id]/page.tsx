@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Download, FileText, Info, ShieldAlert, FileWarning } from "lucide-react";
+import { ArrowLeft, Info, ShieldAlert } from "lucide-react";
 import { products } from "@/lib/products";
 import { notFound } from "next/navigation";
 
@@ -83,53 +83,24 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         </div>
 
         {/* Downloads & Safety */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Product Resources</h2>
-            <div className="bg-white border rounded-xl overflow-hidden">
-              <div className="divide-y">
-                  <div className="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <div className="flex items-center">
-                      <FileText className="h-5 w-5 text-red-500 mr-3" />
-                      <div>
-                        <div className="font-semibold text-gray-900 text-sm">Approved Product Label</div>
-                        <div className="text-xs text-gray-500">English, Sinhala, Tamil (PDF, 2.4MB)</div>
-                      </div>
-                    </div>
-                    <a href="/docs/labels/product_label.pdf" download className="text-green-700 hover:bg-green-50 p-2 rounded-full"><Download className="h-5 w-5" /></a>
-                  </div>
-                  <div className="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <div className="flex items-center">
-                      <FileWarning className="h-5 w-5 text-yellow-500 mr-3" />
-                      <div>
-                        <div className="font-semibold text-gray-900 text-sm">Safety Data Sheet (SDS)</div>
-                        <div className="text-xs text-gray-500">English (PDF, 1.1MB)</div>
-                      </div>
-                    </div>
-                    <a href="/docs/sds/safety_data_sheet.pdf" download className="text-green-700 hover:bg-green-50 p-2 rounded-full"><Download className="h-5 w-5" /></a>
-                  </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-             <h2 className="text-2xl font-bold text-gray-900 mb-6">Safety Warning</h2>
-             <div className="bg-yellow-50 border border-yellow-200 p-6 rounded-xl">
-               <div className="flex items-start mb-4">
-                 <ShieldAlert className="h-6 w-6 text-yellow-600 mr-3 shrink-0" />
-                 <div>
-                   <h3 className="font-bold text-yellow-900">Restricted Use Note</h3>
-                   <div className="text-sm font-medium text-gray-700 mt-1">Classification: {product.safetyClass}</div>
-                 </div>
+        {/* Safety Warning */}
+        <div className="max-w-4xl">
+           <h2 className="text-2xl font-bold text-gray-900 mb-6">Safety Warning</h2>
+           <div className="bg-yellow-50 border border-yellow-200 p-6 md:p-8 rounded-2xl">
+             <div className="flex items-start mb-6">
+               <ShieldAlert className="h-8 w-8 text-yellow-600 mr-4 shrink-0" />
+               <div>
+                 <h3 className="text-xl font-bold text-yellow-900">Restricted Use Note</h3>
+                 <div className="text-gray-700 mt-1 font-medium text-lg">Classification: {product.safetyClass}</div>
                </div>
-               <p className="text-sm text-gray-700 leading-relaxed mb-4">
-                 Use this product only according to the approved label and applicable Sri Lankan regulations. Product information on this website is for reference only and must not replace professional agricultural advice.
-               </p>
-               <Link href="/safety" className="text-yellow-700 font-semibold text-sm hover:underline">
-                 Read our safety guide
-               </Link>
              </div>
-          </div>
+             <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+               Use this product only according to the approved label and applicable Sri Lankan regulations. Product information on this website is for reference only and must not replace professional agricultural advice.
+             </p>
+             <Link href="/safety" className="inline-flex items-center text-yellow-700 font-bold hover:underline text-lg">
+               Read our full safety guide
+             </Link>
+           </div>
         </div>
 
       </div>

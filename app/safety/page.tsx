@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldAlert, Book, Download, AlertTriangle, ShieldCheck } from "lucide-react";
+import { ShieldAlert, Book, AlertTriangle, ShieldCheck } from "lucide-react";
 
 export default function SafetyPage() {
   return (
@@ -54,70 +54,6 @@ export default function SafetyPage() {
             
             <div className="bg-yellow-50 p-4 rounded-xl border border-yellow-200 mt-6 text-sm text-yellow-900">
                <strong>Important Note:</strong> This information does not replace professional agricultural advice or the legal instructions found on the approved product label. Always comply with Sri Lankan regulations.
-            </div>
-          </div>
-        </div>
-
-        {/* Downloads */}
-        <div className="max-w-4xl mx-auto" id="downloads">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Document Library</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Category */}
-            <div className="bg-white border rounded-xl overflow-hidden">
-               <div className="bg-gray-100 px-6 py-4 border-b font-semibold text-gray-900">Safety Data Sheets (SDS)</div>
-               <div className="divide-y">
-                 {[
-                   { name: "WeedMax 500 SDS", updated: "Jan 2025" },
-                   { name: "PestKill 25 SDS", updated: "Nov 2024" },
-                   { name: "TeaGuard Pro SDS", updated: "Dec 2024" }
-                 ].map((doc) => (
-                   <div key={doc.name} className="px-6 py-4 flex justify-between items-center hover:bg-gray-50">
-                     <div>
-                       <div className="text-sm font-medium text-gray-900">{doc.name}</div>
-                       <div className="text-xs text-gray-500 mt-1">Updated {doc.updated}</div>
-                     </div>
-                      <a 
-                        href="/docs/sds/safety_data_sheet.pdf"
-                        download
-                        className="text-green-700 p-2 hover:bg-green-50 rounded"
-                        title="Download Document"
-                      >
-                        <Download className="h-4 w-4" />
-                      </a>
-                    </div>
-                  ))}
-                </div>
-                <div className="p-4 bg-gray-50 text-center border-t">
-                  <Link href="/products" className="text-sm font-medium text-green-700 hover:underline">Find SDS via specific products</Link>
-                </div>
-             </div>
-
-            {/* General Resources */}
-            <div className="bg-white border rounded-xl overflow-hidden">
-               <div className="bg-gray-100 px-6 py-4 border-b font-semibold text-gray-900">Guides & Manuals</div>
-               <div className="divide-y">
-                 {[
-                   { name: "Safe Spaying Techniques Guide", format: "PDF (English, Sinhala, Tamil)" },
-                   { name: "Empty Container Disposal Guide", format: "PDF" },
-                   { name: "Paddy Recommendation Chart 2026", format: "PDF" }
-                 ].map((doc) => (
-                   <div key={doc.name} className="px-6 py-4 flex justify-between items-center hover:bg-gray-50">
-                     <div>
-                       <div className="text-sm font-medium text-gray-900 leading-tight">{doc.name}</div>
-                       <div className="text-xs text-gray-500 mt-1">{doc.format}</div>
-                     </div>
-                     <a 
-                        href="/docs/labels/product_label.pdf"
-                        download
-                        className="text-green-700 p-2 hover:bg-green-50 rounded"
-                        title="Download Document"
-                     >
-                        <Download className="h-4 w-4" />
-                     </a>
-                   </div>
-                 ))}
-               </div>
             </div>
           </div>
         </div>
