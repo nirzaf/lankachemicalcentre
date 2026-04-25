@@ -16,7 +16,6 @@ export function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Professional agricultural solutions and chemical distribution in Sri Lanka. Committed to farmer success and sustainable agriculture.
             </p>
-            </div>
           </div>
 
           {/* Quick Links */}
