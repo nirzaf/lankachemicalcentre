@@ -14,7 +14,7 @@ export function Header() {
       <div className="bg-green-800 text-white py-1">
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center text-xs md:text-sm">
           <div className="flex items-center space-x-4">
-            <span className="flex items-center"><Phone className="h-3 w-3 mr-1" /> +94 11 234 5678</span>
+            <span className="flex items-center"><Phone className="h-3 w-3 mr-1" /> +94 76 234 7283</span>
             <span className="hidden md:inline">contact@lankachemicalcentre.com</span>
           </div>
           <div className="flex items-center space-x-4">
